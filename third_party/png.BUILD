@@ -37,6 +37,10 @@ cc_library(
             "powerpc/powerpc_init.c",
             "powerpc/filter_vsx_intrinsics.c",
         ],
+        "@org_tensorflow//tensorflow:linux_ppc64be": [
+            "powerpc/powerpc_init.c",
+            "powerpc/filter_vsx_intrinsics.c",
+        ],
         "//conditions:default": [
         ],
     }),

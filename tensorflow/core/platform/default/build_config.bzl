@@ -220,6 +220,7 @@ def cc_proto_library(
     if use_grpc_plugin:
         cc_libs += select({
             "//tensorflow:linux_s390x": ["//external:grpc_lib_unsecure"],
+            "//tensorflow:linux_ppc64be": ["//external:grpc_lib_unsecure"],
             "//conditions:default": ["//external:grpc_lib"],
         })
 

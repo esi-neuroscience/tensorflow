@@ -232,6 +232,12 @@ config_setting(
 
 config_setting(
     name = "linux_ppc64le",
+    values = {"cpu": "ppcle"},
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
+    name = "linux_ppc64be",
     values = {"cpu": "ppc"},
     visibility = ["//visibility:public"],
 )
@@ -508,6 +514,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = select({
         ":linux_s390x": ["@grpc//:grpc_unsecure"],
+        ":linux_ppc64be": ["@grpc//:grpc_unsecure"],
         "//conditions:default": ["@grpc"],
     }),
 )
@@ -517,6 +524,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = select({
         ":linux_s390x": ["@grpc//:grpc++_unsecure"],
+        ":linux_ppc64be": ["@grpc//:grpc++_unsecure"],
         "//conditions:default": ["@grpc//:grpc++"],
     }),
 )

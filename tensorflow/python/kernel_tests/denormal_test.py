@@ -36,7 +36,7 @@ class DenormalTest(test.TestCase):
       self.assertEqual(tiny, tiny / 16 * 16)
 
   def _flushDenormalsTest(self, use_gpu, dtypes):
-    if platform.machine() == "ppc64le" or platform.machine(
+    if platform.machine() == "ppc64" or platform.machine(
     ) == "s390x" or platform.machine() == "aarch64":
       # Disabled denormal_test on power/s390x/aarch64 platform
       # Check relevant discussion - https://github.com/tensorflow/tensorflow/issues/11902
